@@ -1,0 +1,22 @@
+1st step:
+
+/var/www/html/noblecraft_warehouse/app/design/frontend/Kitchen/noblecraft/Magento_Theme/layout/default.xml
+
+- add below code in body tag
+
+<referenceBlock name="head.additional">
+    <block class="Magento\Framework\View\Element\Template" name="new_link" template="Magento_Theme::html/newlink.phtml"/>
+</referenceBlock>
+
+2nd step:
+
+/var/www/html/noblecraft_warehouse/app/design/frontend/Kitchen/noblecraft/Magento_Theme/templates/html/newlink.phtml
+
+<?php
+$currentUrl = $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+
+?>
+<link rel="alternate" href= <?= $currentUrl ?> hreflang="en-us"/>
+<link rel="alternate" href= <?= $currentUrl ?> hreflang="en"/>
+<link rel="alternate" href= <?= $currentUrl ?> hreflang="x-default"/>
+
